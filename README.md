@@ -38,7 +38,12 @@ The `run_frame2file.vbs` launcher is intended for Windows and uses `pyw.exe` to 
 
 ## Installation
 
-1. Clone or download this project.
+1. Clone this project.
+
+```powershell
+git clone https://github.com/anzutm/Frame2File.git
+cd Frame2File
+```
 
 2. Open a terminal in the project folder.
 
