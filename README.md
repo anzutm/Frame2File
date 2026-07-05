@@ -2,7 +2,7 @@
 
 Frame2File is a local Python desktop application for converting image files into a single PDF through a simple Tkinter GUI. It is designed for arranging image sequences, previewing them, and exporting them as a PDF file without using an online service.
 
-## Screenshot
+## Application Preview
 
 ![Frame2File user interface](assets/Ui/Ui.png)
 
