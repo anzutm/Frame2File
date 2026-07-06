@@ -1,2 +1,4 @@
 Set shell = CreateObject("WScript.Shell")
-shell.Run "pyw.exe """ & Replace(WScript.ScriptFullName, "run_frame2file.vbs", "main.py") & """", 0, False
+projectDir = Replace(WScript.ScriptFullName, "run_frame2file.vbs", "")
+shell.CurrentDirectory = projectDir
+shell.Run "pyw.exe -m frame2file.app", 0, False

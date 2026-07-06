@@ -1,10 +1,6 @@
 # Frame2File
 
-Frame2File is a local Python desktop application for converting image files into a single PDF through a simple Tkinter GUI. It is designed for arranging image sequences, previewing them, and exporting them as a PDF file without using an online service.
-
-## Application Preview
-
-![Frame2File user interface](assets/Ui/Ui.png)
+Frame2File is a local Python desktop application for converting image files into a single PDF through a modern PySide6 / Qt for Python interface.
 
 ## Main Features
 
@@ -16,6 +12,7 @@ Frame2File is a local Python desktop application for converting image files into
 - Remove selected images from the conversion list.
 - Convert images into one PDF file.
 - Show conversion progress and status messages.
+- Scan thumbnails and export PDF without freezing the UI.
 - Runs locally on your computer.
 
 ## Supported Image Formats
@@ -30,11 +27,11 @@ Frame2File is a local Python desktop application for converting image files into
 
 - Python 3.10 or newer
 - Pillow
-- Tkinter
+- PySide6
 
-Tkinter is included with most standard Python installations. Pillow must be installed separately.
+Frame2File requires PySide6 and Pillow.
 
-The `run_frame2file.vbs` launcher is intended for Windows and uses `pyw.exe` to start the app without showing a console window.
+The `run_frame2file.vbs` launcher is intended for Windows and uses `pyw.exe` to start the PySide6 app without showing a console window.
 
 ## Installation
 
@@ -54,29 +51,29 @@ py -m venv .venv
 .\.venv\Scripts\Activate.ps1
 ```
 
-4. Install Pillow.
+4. Install dependencies.
 
 ```powershell
-py -m pip install pillow
+py -m pip install -r requirements.txt
 ```
 
 ## Running the Application
 
-Run the application from the project folder:
+Run the new PySide6 application from the project folder:
 
 ```powershell
-python main.py
+python -m frame2file.app
 ```
 
 On Windows, you can also use:
 
 ```powershell
-py main.py
+py -m frame2file.app
 ```
 
 ## Running with the VBS Launcher
 
-The `run_frame2file.vbs` file works as a Windows launcher. It starts `main.py` using `pyw.exe`, hides the console window, and opens the Frame2File GUI.
+The `run_frame2file.vbs` file works as a Windows launcher. It starts the new PySide6 app using `pyw.exe`, hides the console window, and opens the Frame2File GUI.
 
 You can run it by double-clicking:
 
@@ -105,18 +102,27 @@ Images/Images.pdf
 
 ```text
 Frame2File/
-+-- main.py
++-- frame2file/
+|   +-- app.py
+|   +-- core/
+|   |   +-- image_loader.py
+|   |   +-- pdf_exporter.py
+|   |   `-- sorting.py
+|   `-- gui/
+|       +-- main_window.py
+|       +-- resources/
+|       +-- services/
+|       `-- widgets/
++-- requirements.txt
 +-- run_frame2file.vbs
-+-- assets/
-|   `-- Ui/
-|       `-- Ui.png
 +-- .gitignore
 `-- README.md
 ```
 
-- `main.py` contains the Tkinter GUI and image-to-PDF conversion logic.
-- `run_frame2file.vbs` launches the app on Windows through `pyw.exe`.
-- `assets/Ui/Ui.png` contains the application screenshot used in this README.
+- `frame2file/app.py` is the new PySide6 entry point.
+- `frame2file/core/` contains reusable image loading, natural sorting, and PDF export logic.
+- `frame2file/gui/` contains the Qt widgets, window, styling, and worker threads.
+- `run_frame2file.vbs` launches the PySide6 app on Windows through `pyw.exe`.
 - `.gitignore` excludes Python cache files and `desktop.ini`.
 - `README.md` provides project documentation.
 
