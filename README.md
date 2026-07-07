@@ -2,6 +2,9 @@
 
 Frame2File is a local Python desktop application for converting image files into a single PDF through a modern PySide6 / Qt for Python interface.
 
+## Preview
+![Preview](images/preview.png)
+
 ## Main Features
 
 - Select a folder and automatically load supported image files.
